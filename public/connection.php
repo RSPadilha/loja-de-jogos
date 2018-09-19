@@ -1,7 +1,7 @@
 <?php
 class PDOFactory {
 
-private static $pdo; // Não precisa disso?
+// private static $pdo; // Não precisa disso?
 
 	public static function getConnection() {
 		$host = 'localhost';
