@@ -1,2 +1,3 @@
 RewriteEngine On
 
+RewriteRule ^jogos/?$ ../index.php [NC,L]
