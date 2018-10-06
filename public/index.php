@@ -15,9 +15,10 @@ $app->get('/', function ($req, $res) {
 
 
 $app->get('/jogos', function($req, $res) {
-	echo 'Você está listando todos os jogos';
+	echo '<h1>Você está listando todos os jogos</h1>';
 	$dao = new GameDAO;
 	$dao->listAll();
+
 
 	// $res->getBody()->write($query);
 	// return $res;
