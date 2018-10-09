@@ -10,6 +10,7 @@ $app = new \Slim\App;
 /* Declaração de paths */
 $app->get('/', function ($req, $res) {
 	echo 'Você está na nossa loja de jogos';
+	echo 'Site em https://loja-de-jogos-pi2.herokuapp.com/public';
 });
 
 
