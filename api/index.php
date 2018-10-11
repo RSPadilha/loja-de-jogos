@@ -2,8 +2,9 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-require '../vendor/autoload.php';
-require 'GameDAO.php';
+require_once '../vendor/autoload.php';
+require_once 'GameDAO.php';
+require_once 'UsuarioDao.php';
 
 $app = new \Slim\App;
 
@@ -41,6 +42,13 @@ $app->delete('/jogos/{id}', function($req, $res, $args) {
 	$id = $args['id'];
 	$dao = new GameDAO;
 	$dao->delete($id);
+});
+
+$app->post('/usuario', function($req, $res) {
+	$body = $req->getParsedBody();
+	$usuario = new usuario(0, $body['usuario'], $body['senha']);
+	$dao = new UsuarioDao();
+	$dao->inserir($usuario);
 });
 
 

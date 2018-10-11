@@ -1,6 +1,6 @@
 <?php
-require 'PDOFactory.php';
-require 'Game.php';
+require_once 'PDOFactory.php';
+require_once 'Game.php';
 
 class GameDAO {
 	public function listAll() {

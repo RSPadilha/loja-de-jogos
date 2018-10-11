@@ -1,0 +1,12 @@
+.avatar {
+	margin: auto;
+	width: 128px;
+	height: 128px;
+	margin-bottom: 1.25rem;
+}
+.hero{
+ 	background: #F2F6FA;
+}
+.hero-body {
+	padding-top: 0;
+}
