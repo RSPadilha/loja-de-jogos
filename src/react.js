@@ -1,28 +1,13 @@
 class Form extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state =
-		{
-			usuario: '',
-			senha: ''
-		};
-		this.handleUsuarioChange = this.handleUsuarioChange.bind(this);
-		this.handleSenhaChange = this.handleSenhaChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	handleUsuarioChange(e) {
-		this.setState({usuario: event.target.value});
-	}
-
-	handleSenhaChange(e) {
-		this.setState({senha: event.target.value});
+		this.handleCriar = this.handleCriar.bind(this);
 	}
 
 	handleSubmit(e) {
+		// const data = new FormData(e.target);
 		e.preventDefault();
-		const data = new FormData(e.target);
-
 		// fetch('http://localhost/loja-de-jogos/api/usuario', {
 		// 	method: 'POST',
 		// 	body: data,
@@ -31,10 +16,11 @@ class Form extends React.Component {
 
 	handleCriar(e) {
 		const data = new FormData(e.target);
-
+		e.preventDefault();
 		fetch('http://localhost/loja-de-jogos/api/usuario', {
 			method: 'POST',
-			body: data,
+			headers: {'Content-Type':'application/form-data'},
+			body: data
 		});
 	}
 
@@ -44,7 +30,7 @@ class Form extends React.Component {
 				<div class="field">
 					<label class="label">Usuário</label>
 			  		<div class="control has-icons-left">
-			    		<input class="input" placeholder="Nome de usuário" value={this.state.usuario} onChange={this.handleUsuarioChange} name='usuario' autofocus="autofocus" />
+			    		<input class="input" placeholder="Nome de usuário" name="usuario" autofocus="autofocus" />
 			    		<span class="icon is-small is-left">
 			      			<i class="fas fa-user"></i>
 			    		</span>
@@ -53,7 +39,7 @@ class Form extends React.Component {
 				<div class="field">
 			  		<label class="label">Senha</label>
 			  		<div class="control has-icons-left">
-			    		<input class="input" type="password" placeholder="Senha" value={this.state.senha} onChange={this.handleSenhaChange} name='senha'/>
+			    		<input class="input" type="password" placeholder="Senha" name='senha'/>
 			    		<span class="icon is-small is-left">
 			      			<i class="fas fa-lock"></i>
 			    		</span>
@@ -67,9 +53,8 @@ class Form extends React.Component {
 			    		<button class="button is-text" onClick={this.handleCriar}>Criar conta</button>
 			  		</div>
 				</div>
-				<label class="label"></label>
 			</form>
-			);
+		);
 	}
 }
 
