@@ -3,6 +3,7 @@ Este projeto é para o trabalho de Programação para Internet 2.
 
 O objetivo é desenvolver um web service para ser usado por uma loja online de jogos (tipo Steam).
 
+Clonar repositório dentro do xampp e rodar o comando `composer install`
 
 *Arquivos importantes dentro da pasta public*
 
