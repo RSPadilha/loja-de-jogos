@@ -1,19 +1,17 @@
 <?php
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-
 require_once '../vendor/autoload.php';
+
+require_once './usuario/UsuarioController.php';
 require_once 'GameDAO.php';
-require_once 'UsuarioDao.php';
 
 $app = new \Slim\App;
 
-/* Declaração de paths */
-$app->get('/', function ($req, $res) {
+$app->get('/', function($req, $res) {
 	echo 'Você está na nossa loja de jogos';
-	echo 'Site em https://loja-de-jogos-pi2.herokuapp.com/public';
+	echo 'Site em https://loja-de-jogos-pi2.herokuapp.com/';
 });
-
 
 $app->get('/jogos', function($req, $res) {
 	echo '<h1>Você está listando todos os jogos</h1>';
@@ -23,7 +21,7 @@ $app->get('/jogos', function($req, $res) {
 	// return $res;
 });
 
-$app->get('/jogos/{id}', function ($req, $res, $args) {
+$app->get('/jogos/{id}', function($req, $res, $args) {
 	$dao = new GameDAO;
 	$dao->searchById($args['id']);
 	// $res->
@@ -44,12 +42,20 @@ $app->delete('/jogos/{id}', function($req, $res, $args) {
 	$dao->delete($id);
 });
 
-$app->post('/usuario', function($req, $res) {
-	$body = $req->getParsedBody();
-	$usuario = new usuario(0, $body['usuario'], $body['senha']);
-	$dao = new UsuarioDao();
-	$dao->inserir($usuario);
+$app->group('/usuarios', function() {
+	$this->get('', 'UsuarioController:listar');
+	$this->get('/{id}', 'UsuarioController:buscar');
+	$this->post('', 'UsuarioController:inserir');
+	$this->put('/{id}', 'UsuarioController:atualizar');
+	$this->delete('/{id}', 'UsuarioController:deletar');
 });
 
+// $app->group('/jogos', function () {
+// 	$this->get('', 'JogosController:');
+// 	$this->get('', 'JogosController:');
+// 	$this->post('', 'JogosController:');
+// 	$this->put('', 'JogosController:');
+// 	$this->delete('', 'JogosController:');
+// });
 
 $app->run();

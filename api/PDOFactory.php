@@ -1,6 +1,13 @@
 <?php
 class PDOFactory {
 	public static function getConnection() {
+		// LOCAL
+		// $user = 'root';
+		// $pass = '';
+		// $host = 'localhost';
+		// $db = 'loja-de-jogos';
+
+		// ONLINE HEROKU
 		$user = 'an6k7gg7hmusxbqp';
 		$pass = 'hl0f6d9wyggfn33k';
 		$host = 'ko86t9azcob3a2f9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';

@@ -6,22 +6,17 @@ class Form extends React.Component {
 	}
 
 	handleSubmit(e) {
-		// const data = new FormData(e.target);
 		e.preventDefault();
-		// fetch('http://localhost/loja-de-jogos/api/usuario', {
-		// 	method: 'POST',
-		// 	body: data,
-		// });
+		const data = new FormData(e.target);
+		fetch('http://localhost/loja-de-jogos/api/usuarios', {
+			method: 'POST',
+			body: data,
+		});
+		console.log('Usuario criado');
 	}
 
 	handleCriar(e) {
-		const data = new FormData(e.target);
 		e.preventDefault();
-		fetch('http://localhost/loja-de-jogos/api/usuario', {
-			method: 'POST',
-			headers: {'Content-Type':'application/form-data'},
-			body: data
-		});
 	}
 
 	render() {
@@ -39,7 +34,7 @@ class Form extends React.Component {
 				<div class="field">
 			  		<label class="label">Senha</label>
 			  		<div class="control has-icons-left">
-			    		<input class="input" type="password" placeholder="Senha" name='senha'/>
+			    		<input class="input" type="password" placeholder="Senha" name="senha" />
 			    		<span class="icon is-small is-left">
 			      			<i class="fas fa-lock"></i>
 			    		</span>
@@ -49,6 +44,7 @@ class Form extends React.Component {
 			  		<div class="control">
 			    		<input type="submit" class="button is-link" value="Entrar" />
 			  		</div>
+			  	{/*Colocar fora do form*/}
 					<div class="control">
 			    		<button class="button is-text" onClick={this.handleCriar}>Criar conta</button>
 			  		</div>
