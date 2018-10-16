@@ -1,6 +1,7 @@
 .avatar {
 	margin: auto;
-	width: 128px;
+	/* Senac 220px, Steam 128px */
+	width: 220px;
 	height: 128px;
 	margin-bottom: 1.25rem;
 }
