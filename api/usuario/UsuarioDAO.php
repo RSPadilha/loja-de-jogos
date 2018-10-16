@@ -5,7 +5,7 @@
 	class UsuarioDAO {
 		public function listar() {
 			$listar = 'SELECT * FROM usuarios';
-			$pdo = PDOFactory::getConnection();
+			$pdo = PDOFactory::getConexao();
 			$comando = $pdo->prepare($listar);
 			$comando->execute();
 			
@@ -17,9 +17,9 @@
 		}
 
 		public function buscar($id) {
-			$buscarid = 'SELECT * FROM usuarios WHERE id = :id';
-			$pdo = PDOFactory::getConnection();
-			$comando = $pdo->prepare($buscarid);
+			$buscarId = 'SELECT * FROM usuarios WHERE id = :id';
+			$pdo = PDOFactory::getConexao();
+			$comando = $pdo->prepare($buscarId);
 			$comando->bindValue('id', $id);
 			$comando->execute();
 			$usuario = $comando->fetch(PDO::FETCH_OBJ);
@@ -28,7 +28,7 @@
 
 		public function inserir(Usuario $usuario) {
 			$inserir = 'INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)';
-			$pdo = PDOFactory::getConnection();
+			$pdo = PDOFactory::getConexao();
 			$comando = $pdo->prepare($inserir);
 			$comando->bindValue('nome', $usuario->nome);
 			$comando->bindValue('senha', hash('sha256','joguinhos' . $usuario->senha));
@@ -37,7 +37,7 @@
 
 		public function atualizar(Usuario $usuario) {
 			$atualizar = 'UPDATE usuarios SET nome = :nome, senha = :senha WHERE id = :id';
-			$pdo = PDOFactory::getConnection();
+			$pdo = PDOFactory::getConexao();
 			$comando = $pdo->prepare($atualizar);
 			$comando->bindValue('nome', $usuario->nome);
 			$comando->bindValue('senha', hash('sha256','joguinhos' . $usuario->senha));
@@ -46,7 +46,7 @@
 
 		public function deletar($id) {
 			$deletar = 'DELETE FROM usuarios WHERE id = :id';
-			$pdo = PDOFactory::getConnection();
+			$pdo = PDOFactory::getConexao();
 			$comando = $pdo->prepare($deletar);
 			$comando->bindValue('id', $id);
 			$comando->execute();

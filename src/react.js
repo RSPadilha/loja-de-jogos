@@ -12,7 +12,6 @@ class Form extends React.Component {
 			method: 'POST',
 			body: data,
 		});
-		console.log('Usuario criado');
 	}
 
 	handleCriar(e) {

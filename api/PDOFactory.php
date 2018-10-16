@@ -1,6 +1,6 @@
 <?php
 class PDOFactory {
-	public static function getConnection() {
+	public static function getConexao() {
 		// LOCAL
 		// $user = 'root';
 		// $pass = '';
