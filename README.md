@@ -21,10 +21,10 @@ Clonar repositório dentro do xampp e rodar o comando `composer install`
 
 # Estudos
 
-Exemplo de login com React [http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example]
-Redux [https://redux.js.org/]
-OAuth2 [https://oauth.net/2/]
-JWTF [https://jwt.io/]
+- Exemplo de login com React http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example
+- Redux https://redux.js.org/
+- OAuth2 https://oauth.net/2/
+- JWT https://jwt.io/
 
 **Comando para rodar o server (dentro da pasta public)**
 `php -S localhost:8080 index.php` // Não rodar esse comando, rodar em um server na verdade
