@@ -1,4 +1,5 @@
 <?php
+// TODO Fetch config file direto do heroku pros dados não ficarem expostos
 class PDOFactory {
 	public static function getConexao() {
 		// LOCAL

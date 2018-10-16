@@ -1,11 +1,30 @@
-# Loja de Jogos
+# Loja de Jogos :video_game:
 Este projeto é para o trabalho de Programação para Internet 2.
 
 O objetivo é desenvolver um web service para ser usado por uma loja online de jogos (tipo Steam).
 
 Clonar repositório dentro do xampp e rodar o comando `composer install`
 
-*Arquivos importantes dentro da pasta public*
+# TODO
+
+- [ ] Tela de cadastro de usuário
+- [ ] Refazer a tabela de usuários adicionando novas colunas
+- [ ] Definir o esquema do caminho das imagens armazenadas no banco
+- [ ] Criar a view da loja em si (jogos cadastrados)
+- [ ] Navegação entre páginas no front
+- [ ] Definir a relação das tabelas (FK, Lista de jogos e carrinho)
+- [ ] Funções de compra de jogos
+- [ ] Autenticação
+- [ ] Planejar melhor a função `atualizar`
+- [ ] Validar inputs
+- [ ] Acessar o banco de forma mais segura sem expor as credenciais no código
+
+# Estudos
+
+Exemplo de login com React [http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example]
+Redux [https://redux.js.org/]
+OAuth2 [https://oauth.net/2/]
+JWTF [https://jwt.io/]
 
 **Comando para rodar o server (dentro da pasta public)**
 `php -S localhost:8080 index.php` // Não rodar esse comando, rodar em um server na verdade
