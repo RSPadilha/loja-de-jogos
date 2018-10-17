@@ -19,6 +19,8 @@
 		$this->post('', 'UsuarioController:inserir');
 		$this->put('/{id}', 'UsuarioController:atualizar');
 		$this->delete('/{id}', 'UsuarioController:deletar');
+		
+		$this->get('/jogos/{id}', 'UsuarioController:listarJogos');
 	});
 
 	$app->group('/jogos', function() {

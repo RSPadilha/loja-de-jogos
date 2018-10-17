@@ -8,14 +8,17 @@ Clonar repositório dentro do xampp e rodar o comando `composer install`
 # TODO
 
 - [ ] Tela de cadastro de usuário
-- [ ] Refazer a tabela de usuários adicionando novas colunas
+- [X] Refazer a tabela de usuários adicionando novas colunas
 - [ ] Definir o esquema do caminho das imagens armazenadas no banco
-- [ ] Criar a view da loja em si (jogos cadastrados)
+- [ ] Tela da loja em si (jogos cadastrados)
+- [ ] Tela do perfil do usuario
 - [ ] Navegação entre páginas no front
 - [ ] Definir a relação das tabelas (FK, Lista de jogos e carrinho)
+- [ ] Arrumar consulta sql da lista de jogos
 - [ ] Funções de compra de jogos
 - [ ] Autenticação
 - [ ] Planejar melhor a função `atualizar`
+- [ ] Melhorar o dao removendo os construtores com null
 - [ ] Validar inputs
 - [ ] Acessar o banco de forma mais segura sem expor as credenciais no código
 

@@ -6,8 +6,7 @@
 		public function listar() {
 			$listar = 'SELECT * FROM jogos';
 			$pdo = PDOFactory::getConexao();
-			$comando = $pdo->prepare($listar);
-			$comando->execute();
+			$comando = $pdo->query($listar);
 			
 			$jogos = array();
 			while ($linha = $comando->fetch(PDO::FETCH_OBJ)) {

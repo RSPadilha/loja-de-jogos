@@ -16,7 +16,7 @@
 
 		public function inserir($req, $res) {
 			$body = $req->getParsedBody();
-			$usuario = new Usuario(null, $body['usuario'], $body['senha']);
+			$usuario = new Usuario(null, $body['nome'], $body['usuario'], $body['senha'], $body['email'], $body['avatar'], null);
 			$dao = new UsuarioDAO;
 			$dao->inserir($usuario);
 			return $res->withStatus(201);
@@ -26,7 +26,7 @@
 			// Pegar o objeto na requisicao?
 			// Qual a necessidade do $args se no $body tbm tem essa informacao
 			$body = $req->getParsedBody();
-			$usuario = new Usuario($args['id'], $body['nome'], $body['senha']);
+			$usuario = new Usuario($args['id'], $body['nome'], $body['usuario'], $body['senha'], $body['email'], $body['avatar'], null);
 			$dao = new UsuarioDAO;
 			$dao->atualizar($usuario);
 			return $res->write('Atualizado');
@@ -36,5 +36,12 @@
 			$dao = new UsuarioDAO;
 			$dao->deletar($args['id']);
 			return $res->write('Deletado');
+		}
+
+		public function listarJogos($req, $res, $args) {
+			$dao = new UsuarioDAO;
+			$listar = $dao->listarJodos($args['id']);
+			return $res->withJson($listar)->withHeader('Content-type', 'application/json');
+
 		}
 	}
