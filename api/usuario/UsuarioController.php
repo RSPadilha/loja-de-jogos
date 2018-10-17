@@ -42,6 +42,5 @@
 			$dao = new UsuarioDAO;
 			$listar = $dao->listarJogos($args['id']);
 			return $res->withJson($listar)->withHeader('Content-type', 'application/json');
-
 		}
 	}
