@@ -12,7 +12,7 @@
 			while ($linha = $comando->fetch(PDO::FETCH_OBJ)) {
 				$usuarios[] = new Usuario($linha->id, $linha->nome, $linha->usuario, null, $linha->email, $linha->avatar, $linha->qtdJogos);
 			}
-			return $usuarios;
+			return $usuarios ? $usuarios : null;
 		}
 
 		public function buscar($id) {
@@ -22,7 +22,7 @@
 			$comando->bindValue('id', $id);
 			$comando->execute();
 			$usuario = $comando->fetch(PDO::FETCH_OBJ);
-			return new Usuario($usuario->id, $usuario->nome, $usuario->usuario, null, $usuario->email, $usuario->avatar, $usuario->qtdJogos);
+			return $usuario ? new Usuario($usuario->id, $usuario->nome, $usuario->usuario, null, $usuario->email, $usuario->avatar, $usuario->qtdJogos) : null;
 		}
 
 		public function inserir(Usuario $usuario) {
@@ -57,19 +57,17 @@
 			$comando->execute();
 		}
 
-		// ARRUMAR ESSA CONSULTA HORRIVEL
-		public function listarJodos($id) {
-			$listarJodos = 'SELECT usuarios.nome, jogos.nome FROM usuarios INNER JOIN lista_jogos ON usuarios.id = lista_jogos.idUsuario INNER JOIN jogos ON jogos.id = lista_jogos.idJogo WHERE usuarios.id = :id';
+		public function listarJogos($id) {
+			$listarJogos = 'SELECT j.nome FROM jogos j, lista_jogos l WHERE l.idUsuario = :id AND j.id = l.idJogo';
 			$pdo = PDOFactory::getConexao();
-			$comando = $pdo->prepare($listarJodos);
+			$comando = $pdo->prepare($listarJogos);
 			$comando->bindValue('id', $id);
 			$comando->execute();
 
 			$listaJogos = array();
 			while ($linha = $comando->fetch(PDO::FETCH_OBJ)) {
-				$listaJogos = $linha->nome;
+				$listaJogos[] = $linha->nome;
 			}
-			// $listaJogos = $comando->fetch(PDO::FETCH_OBJ);
-			return $listaJogos;
+			return $listaJogos ? $listaJogos : null;
 		}
 	}

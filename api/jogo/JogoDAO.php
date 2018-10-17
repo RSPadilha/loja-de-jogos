@@ -12,7 +12,7 @@
 			while ($linha = $comando->fetch(PDO::FETCH_OBJ)) {
 				$jogos[] = new Jogo($linha->id, $linha->nome, $linha->descricao, $linha->preco, $linha->capa);
 			}
-			return $jogos;
+			return $jogos ? $jogos : null;
 		}
 
 		public function buscar($id) {
@@ -22,7 +22,7 @@
 			$comando->bindValue('id', $id);
 			$comando->execute();
 			$jogo = $comando->fetch(PDO::FETCH_OBJ);
-			return new Jogo($jogo->id, $jogo->nome, $jogo->descricao, $jogo->preco, $jogo->capa);
+			return $jogo ? new Jogo($jogo->id, $jogo->nome, $jogo->descricao, $jogo->preco, $jogo->capa) : null;
 		}
 
 		public function inserir(Jogo $jogo) {

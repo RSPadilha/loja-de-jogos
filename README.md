@@ -6,19 +6,28 @@ O objetivo é desenvolver um web service para ser usado por uma loja online de j
 Clonar repositório dentro do xampp e rodar o comando `composer install`
 
 # TODO
-
+##### FRONT
 - [ ] Tela de cadastro de usuário
-- [X] Refazer a tabela de usuários adicionando novas colunas
-- [ ] Definir o esquema do caminho das imagens armazenadas no banco
 - [ ] Tela da loja em si (jogos cadastrados)
 - [ ] Tela do perfil do usuario
 - [ ] Navegação entre páginas no front
+- [ ] Tratar páginas inexistentes (404)
+
+##### BANCO
+- [X] Refazer a tabela de usuários adicionando novas colunas
 - [ ] Definir a relação das tabelas (FK, Lista de jogos e carrinho)
-- [ ] Arrumar consulta sql da lista de jogos
-- [ ] Funções de compra de jogos
+- [ ] Definir o esquema do caminho das imagens armazenadas no banco
+- [X] Arrumar consulta sql da lista de jogos
+
+##### API
+- [ ] Funções de compra de jogos (incrementar quantidade `insert ... qtdJogos = qtdJogos + 1`)
 - [ ] Autenticação
-- [ ] Planejar melhor a função `atualizar`
-- [ ] Melhorar o dao removendo os construtores com null
+- [ ] Planejar melhor a função `atualizar` (pegar id na uri ou no form?)
+- [ ] Melhorar o dao removendo os construtores com null (isso é necessario?)
+- [ ] Tratar erros caso a query não insira, delete, etc.
+- [X] Validar consultas com resultados nulls (consultas com id sem registro no bd)
+
+##### SEGURANÇA
 - [ ] Validar inputs
 - [ ] Acessar o banco de forma mais segura sem expor as credenciais no código
 
