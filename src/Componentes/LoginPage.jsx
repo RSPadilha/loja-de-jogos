@@ -4,7 +4,6 @@ class LoginPage extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCriar = this.handleCriar.bind(this);
 	}
-
 	handleSubmit(e) {
 		// Metodo do RegisterPage
 		// e.preventDefault();
@@ -14,11 +13,9 @@ class LoginPage extends React.Component {
 		// 	body: data,
 		// });
 	}
-
 	handleCriar(e) {
 		e.preventDefault();
 	}
-
 	render() {
 		return (
 			<div class="column is-4 is-offset-4">

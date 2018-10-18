@@ -1,4 +1,4 @@
-import { LoginPage } from './LoginPage.jsx';
+import LoginPage from './LoginPage.jsx';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
