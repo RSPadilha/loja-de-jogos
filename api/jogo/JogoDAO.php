@@ -1,11 +1,11 @@
 <?php
-	require_once 'PDOFactory.php';
+	require_once 'bancoDeDados/Conexao.php';
 	require_once 'Jogo.php';
 
 	class JogoDAO {
 		public function listar() {
 			$listar = 'SELECT * FROM jogos';
-			$pdo = PDOFactory::getConexao();
+			$pdo = Conexao::getConexao();
 			$comando = $pdo->query($listar);
 			
 			$jogos = array();
@@ -17,7 +17,7 @@
 
 		public function buscar($id) {
 			$buscarId = 'SELECT * FROM jogos WHERE id = :id';
-			$pdo = PDOFactory::getConexao();
+			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare($buscarId);
 			$comando->bindValue('id', $id);
 			$comando->execute();
@@ -27,7 +27,7 @@
 
 		public function inserir(Jogo $jogo) {
 			$inserir = 'INSERT INTO jogos (nome, descricao, preco, capa) VALUES (:nome, :descricao, :preco, :capa)';
-			$pdo = PDOFactory::getConexao();
+			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare($inserir);
 			$comando->bindValue('nome', $jogo->nome);
 			$comando->bindValue('descricao', $jogo->descricao);
@@ -38,7 +38,7 @@
 
 		public function atualizar(Jogo $jogo) {
 			$atualizar = 'UPDATE usuarios SET nome = :nome, descricao = :descricao, preco = :preco, capa = :capa';
-			$pdo = PDOFactory::getConexao();
+			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare($atualizar);
 			$comando->bindValue('nome', $jogo->nome);
 			$comando->bindValue('descricao', $jogo->descricao);
@@ -48,7 +48,7 @@
 		}
 
 		public function delete($id) {
-			$pdo = PDOFactory::getConexao();
+			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare('DELETE FROM games WHERE id = :id');
 			$comando->bindValue('id', $id);
 			$comando->execute();

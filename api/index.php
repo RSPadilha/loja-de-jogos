@@ -1,12 +1,15 @@
 <?php
 	use \Psr\Http\Message\ServerRequestInterface as Request;
 	use \Psr\Http\Message\ResponseInterface as Response;
-	require_once '../vendor/autoload.php';
+	require_once './vendor/autoload.php';
 
 	require_once 'usuario/UsuarioController.php';
 	require_once 'jogo/JogoController.php';
 
-	$app = new \Slim\App;
+	$app = new \Slim\App([
+		'settings' => [
+			'displayErrorDetails' => true]
+		]);
 
 	$app->get('/', function($req, $res) {
 		echo '<h1>Você está na nossa loja de jogos</h1>';
