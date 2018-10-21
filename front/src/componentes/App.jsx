@@ -1,4 +1,6 @@
+import React from 'react';
 import LoginPage from './LoginPage.jsx';
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,4 +17,4 @@ class App extends React.Component {
 		);
 	}
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
