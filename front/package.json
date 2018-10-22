@@ -1,32 +1,29 @@
 {
   "name": "loja-de-jogos",
   "version": "1.0.0",
-  "description": "Este projeto é para o trabalho de Programação para Internet 2.",
-  "dependencies": {},
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.4",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
+  "description": "",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.4",
     "webpack": "^4.21.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack --config webpack.config.js"
+    "start": "webpack --config webpack.config.js",
+    "start:server": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RSPadilha/loja-de-jogos.git"
   },
   "author": "Ricardo Padilha",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RSPadilha/loja-de-jogos/issues"
-  },
-  "homepage": "https://github.com/RSPadilha/loja-de-jogos#readme"
+  "license": "ISC"
 }
