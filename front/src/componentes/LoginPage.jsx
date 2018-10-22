@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class LoginPage extends React.Component {
 	constructor(props) {
@@ -51,7 +52,9 @@ class LoginPage extends React.Component {
 							</div>
 						  	{/*Colocar fora do form*/}
 							<div className="control">
-						   		<button className="button is-text" onClick={this.handleCriar}>Criar conta</button>
+								<Link to='/register'>
+							  	<button className="button is-text">Criar conta</button>
+								</Link>
 							</div>
 						</div>
 					</form>
