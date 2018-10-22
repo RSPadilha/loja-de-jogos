@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 import LoginPage from './LoginPage.jsx';
 
 class App extends React.Component {
@@ -17,4 +18,4 @@ class App extends React.Component {
 		);
 	}
 }
-export default App;
+export default hot(module)(App);
