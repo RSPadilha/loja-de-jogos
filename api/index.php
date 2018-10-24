@@ -22,7 +22,7 @@
 		$this->post('', 'UsuarioController:inserir');
 		$this->put('/{id}', 'UsuarioController:atualizar');
 		$this->delete('/{id}', 'UsuarioController:deletar');
-		
+
 		$this->get('/jogos/{id}', 'UsuarioController:listarJogos');
 	});
 
@@ -32,6 +32,20 @@
 		$this->post('', 'JogoController:inserir');
 		$this->put('/{id}', 'JogoController:atualizar');
 		$this->delete('/{id}', 'JogoController:deletar');
+	});
+
+	// Código from slim framework allow cors
+	// $app->options('/{routes:.+}', function ($request, $response, $args) {
+	//     return $response;
+	// });
+
+// Permite o CORS para *, pode ser definido só para o localhost ou server do heroku / Verificar quais methodos são necessarios (options)
+	$app->add(function ($req, $res, $next) {
+	    $response = $next($req, $res);
+	    return $response
+	            ->withHeader('Access-Control-Allow-Origin', '*')
+	            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+	            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 	});
 
 	$app->run();

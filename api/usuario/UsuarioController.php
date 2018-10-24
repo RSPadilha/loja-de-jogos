@@ -16,7 +16,7 @@
 
 		public function inserir($req, $res) {
 			$body = $req->getParsedBody();
-			$usuario = new Usuario(null, $body['nome'], $body['usuario'], $body['senha'], $body['email'], $body['avatar'], null);
+			$usuario = new Usuario(null, $body['nome'], $body['usuario'], $body['senha'], $body['email'], null, null);
 			$dao = new UsuarioDAO;
 			$dao->inserir($usuario);
 			return $res->withStatus(201);

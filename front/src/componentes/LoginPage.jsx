@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
 						<div className="field">
 							<label className="label">Usuário</label>
 					  		<div className="control has-icons-left">
-					    		<input className="input" placeholder="Nome de usuário" name="usuario" autoFocus />
+					    		<input className="input" placeholder="Nome de usuário" name="usuario" required autoFocus />
 					    		<span className="icon is-small is-left">
 					      		<i className="fas fa-user"></i>
 					    		</span>
@@ -40,7 +40,7 @@ class LoginPage extends React.Component {
 						<div className="field">
 							<label className="label">Senha</label>
 							<div className="control has-icons-left">
-						   		<input className="input" type="password" placeholder="Senha" name="senha" />
+						   		<input className="input" type="password" placeholder="Senha" name="senha" required />
 						   		<span className="icon is-small is-left">
 						   			<i className="fas fa-lock"></i>
 						   		</span>

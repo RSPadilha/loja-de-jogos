@@ -26,14 +26,13 @@
 		}
 
 		public function inserir(Usuario $usuario) {
-			$inserir = 'INSERT INTO usuarios (nome, usuario, senha, email, avatar) VALUES (:nome, :usuario, :senha, :email, :avatar)';
+			$inserir = 'INSERT INTO usuarios (nome, usuario, senha, email) VALUES (:nome, :usuario, :senha, :email)';
 			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare($inserir);
 			$comando->bindValue('nome', $usuario->nome);
 			$comando->bindValue('usuario', $usuario->usuario);
 			$comando->bindValue('senha', hash('sha256','joguinhos' . $usuario->senha));
 			$comando->bindValue('email', $usuario->email);
-			$comando->bindValue('avatar', $usuario->avatar);
 			$comando->execute();
 		}
 

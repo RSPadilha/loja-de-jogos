@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
 	entry: "./src/componentes/index.jsx",
 	output: {
-		path: '/dist',
+		path: path.resolve('dist'),
 		publicPath: '/dist',
 		filename: "bundle.js"
 	},
@@ -25,5 +27,4 @@ module.exports = {
 	resolve: {
 		extensions: ['.js','.jsx']
 	}
-	// watch: true
 }

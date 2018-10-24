@@ -7,10 +7,10 @@ Clonar repositório dentro do xampp e rodar o comando `composer install`
 
 # TODO
 ##### FRONT
-- [ ] Tela de cadastro de usuário
+- [X] Tela de cadastro de usuário
 - [ ] Tela da loja em si (jogos cadastrados)
 - [ ] Tela do perfil do usuario
-- [ ] Navegação entre páginas no front
+- [X] Navegação entre páginas no front
 - [ ] Tratar páginas inexistentes (404)
 
 ##### BANCO
@@ -20,6 +20,7 @@ Clonar repositório dentro do xampp e rodar o comando `composer install`
 - [X] Arrumar consulta sql da lista de jogos
 
 ##### API
+- [ ] Mover a pasta composer para o heroku conseguir montar a aplicação
 - [ ] Funções de compra de jogos (incrementar quantidade `insert ... qtdJogos = qtdJogos + 1`)
 - [ ] Autenticação
 - [ ] Planejar melhor a função `atualizar` (pegar id na uri ou no form?)

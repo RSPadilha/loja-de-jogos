@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class RegisterPage extends React.Component {
   constructor(props){
@@ -8,8 +9,8 @@ class RegisterPage extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const data = new FormData(e.target);
-    fetch('http://loja-de-jogos-pi2.herokuapp.com/api/usuarios', {
-		// fetch('http://localhost/loja-de-jogos/api/usuarios', {
+    // fetch('http://loja-de-jogos-pi2.herokuapp.com/api/usuarios', {
+		fetch('http://localhost/loja-de-jogos/api/usuarios', {
 			method: 'POST',
 			body: data,
 		});
@@ -26,7 +27,7 @@ class RegisterPage extends React.Component {
             <div className="field">
               <label className="label">Nome</label>
                 <div className="control has-icons-left">
-                  <input className="input" placeholder="Nome completo" name="nome" autoFocus />
+                  <input className="input" placeholder="Nome completo" name="nome" required autoFocus />
                   <span className="icon is-small is-left">
                     <i className="fas fa-user"></i>
                   </span>
@@ -36,7 +37,7 @@ class RegisterPage extends React.Component {
             <div className="field">
               <label className="label">Usuário</label>
                 <div className="control has-icons-left">
-                  <input className="input" placeholder="Usuário" name="usuario" />
+                  <input className="input" placeholder="Usuário" name="usuario" required />
                   <span className="icon is-small is-left">
                     <i className="fas fa-gamepad"></i>
                   </span>
@@ -46,7 +47,7 @@ class RegisterPage extends React.Component {
             <div className="field">
               <label className="label">Senha</label>
               <div className="control has-icons-left">
-                  <input className="input" type="password" placeholder="Senha" name="senha" />
+                  <input className="input" type="password" placeholder="Senha" name="senha" required />
                   <span className="icon is-small is-left">
                     <i className="fas fa-lock"></i>
                   </span>
@@ -63,15 +64,20 @@ class RegisterPage extends React.Component {
                 </div>
             </div>
 
-            <div className="field">
+            {/* <div className="field">
               <label className="label">Imagem de perfil</label>
               <input className="file" type="file" name="avatar" accept="image/png, image/jpeg" />
-            </div>
+            </div> */}
 
             <div className="field is-grouped">
               <div className="control">
                   <input type="submit" className="button is-link" value="Cadastrar" />
               </div>
+              <div className="control">
+								<Link to='/'>
+							  	<button className="button is-text">Cancelar</button>
+								</Link>
+							</div>
             </div>
           </form>
         </div>
