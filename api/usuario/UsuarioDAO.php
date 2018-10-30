@@ -69,4 +69,17 @@
 			}
 			return $listaJogos ? $listaJogos : null;
 		}
+
+		public function autentica($usuario, $senha) {
+			$login = 'SELECT usuario FROM usuarios WHERE usuario = :usuario AND senha = :senha';
+			$pdo = Conexao::getConexao();
+			// Retornar o token na verdade
+			$comando = $pdo->prepare($login);
+			$comando->bindValue('usuario', $usuario);
+			$comando->bindValue('senha', hash('sha256','joguinhos' . $senha));
+			$comando->execute();
+
+			$usuario = $comando->fetch(PDO::FETCH_OBJ);
+			return $usuario  ? 'login ok' : 'login fail';
+		}
 	}

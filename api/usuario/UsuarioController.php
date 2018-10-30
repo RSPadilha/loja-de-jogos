@@ -43,4 +43,12 @@
 			$listar = $dao->listarJogos($args['id']);
 			return $res->withJson($listar)->withHeader('Content-type', 'application/json');
 		}
+
+		public function autentica($req, $res, $args) {
+			$body = $req->getParsedBody();
+			// Criar instancia de usuario com o login?
+			$dao = new UsuarioDAO;
+			$login = $dao->autentica($body['usuario'], $body['senha']);
+			return $res->write($login)->withHeader('Content-type', 'application/json');
+		}
 	}

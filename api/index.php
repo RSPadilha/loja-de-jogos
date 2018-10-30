@@ -24,6 +24,8 @@
 		$this->delete('/{id}', 'UsuarioController:deletar');
 
 		$this->get('/jogos/{id}', 'UsuarioController:listarJogos');
+
+		$this->post('/autentica', 'UsuarioController:autentica');
 	});
 
 	$app->group('/jogos', function() {
@@ -33,11 +35,6 @@
 		$this->put('/{id}', 'JogoController:atualizar');
 		$this->delete('/{id}', 'JogoController:deletar');
 	});
-
-	// Código from slim framework allow cors
-	// $app->options('/{routes:.+}', function ($request, $response, $args) {
-	//     return $response;
-	// });
 
 // Permite o CORS para *, pode ser definido só para o localhost ou server do heroku / Verificar quais methodos são necessarios (options)
 	$app->add(function ($req, $res, $next) {

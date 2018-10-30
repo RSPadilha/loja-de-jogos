@@ -5,20 +5,17 @@ class LoginPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleCriar = this.handleCriar.bind(this);
 	}
+
 	handleSubmit(e) {
-		// Metodo do RegisterPage
 		e.preventDefault();
-		// const data = new FormData(e.target);
-		// fetch('http://localhost/loja-de-jogos/api/usuarios', {
-		// 	method: 'POST',
-		// 	body: data,
-		// });
+		const data = new FormData(e.target);
+		fetch('http://localhost/loja-de-jogos/api/usuarios/autentica', {
+			method: 'POST',
+			body: data,
+		});
 	}
-	handleCriar(e) {
-		e.preventDefault();
-	}
+
 	render() {
 		return (
 			<div className="column is-4 is-offset-4">
