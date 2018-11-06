@@ -1,6 +1,7 @@
 <?php
 	require_once 'bancoDeDados/Conexao.php';
 	require_once 'Usuario.php';
+	use \Firebase\JWT\JWT;
 
 	class UsuarioDAO {
 		public function listar() {
@@ -71,7 +72,7 @@
 		}
 
 		public function autentica($usuario, $senha) {
-			$login = 'SELECT usuario FROM usuarios WHERE usuario = :usuario AND senha = :senha';
+			$login = 'SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha';
 			$pdo = Conexao::getConexao();
 			// Retornar o token na verdade
 			$comando = $pdo->prepare($login);
@@ -80,6 +81,15 @@
 			$comando->execute();
 
 			$usuario = $comando->fetch(PDO::FETCH_OBJ);
-			return $usuario  ? 'login ok' : 'login fail';
+			return $usuario  ? $this->gerarToken() : 'login fail';
+		}
+
+		private function gerarToken() {
+			$chave = "dotaborderlands2undertale";
+			$token = array(
+				"iss" => "senac"
+			);
+			$jwt = JWT::encode($token, $chave);
+			return $jwt;
 		}
 	}
