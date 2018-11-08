@@ -40,6 +40,8 @@ Para iniciar a aplicação usar `npm run start:server` na pasta **front**
 - Redux https://redux.js.org/
 - OAuth2 https://oauth.net/2/
 - JWT https://jwt.io/
+- Router https://reacttraining.com/react-router/web/guides/quick-start
+- Separação de responsabilidades react https://medium.com/reactbrasil/boas-pr%C3%A1ticas-na-cria%C3%A7%C3%A3o-e-separa%C3%A7%C3%A3o-de-responsabilidades-em-componentes-react-8a6921b33b5
 
 
 # Especificação trabalho 1
@@ -137,12 +139,12 @@ O conceito desse trabalho será baseado de acordo com as funcionalidades realiza
 - [ ] Interface Web adequada e responsiva (sugere-se utilizar Bootstrap ou frameworks semelhantes);
 - [ ] Modelagem apropriada dos Web Services e do Mapeamento dos objetos no back-end;
 - [X] Utilização de um sistema de controle de versão (ex: git) e de um ambiente de colaboração e gerenciamento de código baseado nesse controle de versão (ex: github, bitbucket). Caso o trabalho seja em dupla, a colaboração deve estar evidenciada;
-- [ ] Utilizar alguma prática de mercado não vista em aula (uma das opções):
-- [ ] Utilizar testes unitários aplicados no front-end (JavaScript) e demonstrar testes funcionais nos Web Services (ex: no Postman ou SoapUI);  
-- [X] Aplicar técnicas de segurança não relacionadas em aula (ex: oauth2, JWT) para os Web Services Restful.
-- [ ] Documentar a API seguindo um padrão Open API. Dica: utilizar o Swagger.
-- [ ] Manipulação (upload e download) de imagens e/ou vídeos;
-- [ ] Implantar a aplicação completa em uma plataforma em nuvem: Heroku, OpenShift, DigitalOcean, entre outros.
+**Utilizar alguma prática de mercado não vista em aula (uma das opções):**
+  - [ ] Utilizar testes unitários aplicados no front-end (JavaScript) e demonstrar testes funcionais nos Web Services (ex: no Postman ou SoapUI);  
+  - [X] Aplicar técnicas de segurança não relacionadas em aula (ex: oauth2, JWT) para os Web Services Restful.
+  - [ ] Documentar a API seguindo um padrão Open API. Dica: utilizar o Swagger.
+  - [ ] Manipulação (upload e download) de imagens e/ou vídeos;
+  - [ ] Implantar a aplicação completa em uma plataforma em nuvem: Heroku, OpenShift, DigitalOcean, entre outros.
 Outras opções: conversar com o professor.
 
 

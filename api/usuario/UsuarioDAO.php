@@ -81,14 +81,17 @@
 			$comando->execute();
 
 			$usuario = $comando->fetch(PDO::FETCH_OBJ);
-			return $usuario  ? $this->gerarToken() : 'login fail';
+			return $usuario  ? $this->gerarToken($usuario) : 'login fail';
 		}
 
-		private function gerarToken() {
-			$chave = "dotaborderlands2undertale";
-			$token = array(
-				"iss" => "senac"
-			);
+		private function gerarToken($usuario) {
+			$chave = "dotaborderlandsundertale"; // Deixar secreto (variavel de ambiente)
+			$token = [
+				"iss" => "https://loja-de-jogos-pi2.herokuapp.com/api/",
+				"usuarioId" => $usuario->id,
+				"nome" => $usuario->nome,
+				"usuario" => $usuario->usuario
+			];
 			$jwt = JWT::encode($token, $chave);
 			return $jwt;
 		}
