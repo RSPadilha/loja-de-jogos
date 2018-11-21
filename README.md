@@ -42,6 +42,7 @@ Para iniciar a aplicação usar `npm run start:server` na pasta **front**
 - JWT https://jwt.io/
 - Router https://reacttraining.com/react-router/web/guides/quick-start
 - Separação de responsabilidades react https://medium.com/reactbrasil/boas-pr%C3%A1ticas-na-cria%C3%A7%C3%A3o-e-separa%C3%A7%C3%A3o-de-responsabilidades-em-componentes-react-8a6921b33b5
+- Exemplo login com token https://www.youtube.com/watch?v=Y4NHqDp88lA
 
 
 # Especificação trabalho 1

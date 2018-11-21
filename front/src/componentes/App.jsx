@@ -3,7 +3,13 @@ import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import LoginPage from './LoginPage.jsx';
 import RegisterPage from './RegisterPage.jsx';
+import Homepage from './Homepage.jsx';
 
+// function PrivateRoute({component: Component}){
+// 	return (
+// 		<Route
+// 	);
+// };
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,6 +22,8 @@ class App extends React.Component {
 						<div className="container has-text-centered">
 							<Route exact path="/" component={LoginPage} />
 							<Route path="/register" component={RegisterPage} />
+							{/* PrivateRoute*/}
+							<Route path="/homepage" component={Homepage} />
 						</div>
 					</div>
 				</section>

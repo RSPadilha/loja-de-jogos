@@ -1,22 +1,37 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Redirect } from 'react-router-dom';
 
 class LoginPage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = { redirect: false };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
-		fetch('http://localhost/loja-de-jogos/api/usuarios/autentica', {
-			method: 'POST',
-			body: data,
+		return new Promise((resolve, reject) => {
+			fetch('http://localhost/loja-de-jogos/api/usuarios/autentica', {
+				method: 'POST',
+				body: data,
+			})
+			// .then((response) => response.json())
+			.then((response) => {
+				// TRATAR. só redirecionar quando login ficar ok
+				this.setState({ redirect:true });
+				console.log(response);
+				resolve(response);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+
 		});
 	}
 
 	render() {
+		if(this.state.redirect) return <Redirect to='/homepage' />;
 		return (
 			<div className="column is-4 is-offset-4">
 				<h3 className="title has-text-grey">Login</h3>
