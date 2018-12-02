@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import LoginPage from './LoginPage.jsx';
 import RegisterPage from './RegisterPage.jsx';
 import Homepage from './Homepage.jsx';
+import Gamepage from './Gamepage.jsx';
+
 
 // function PrivateRoute({component: Component}){
 // 	return (
@@ -24,6 +26,7 @@ class App extends React.Component {
 							<Route path="/register" component={RegisterPage} />
 							{/* PrivateRoute*/}
 							<Route path="/homepage" component={Homepage} />
+							<Route path="/gamepage" component={Gamepage} />
 						</div>
 					</div>
 				</section>
