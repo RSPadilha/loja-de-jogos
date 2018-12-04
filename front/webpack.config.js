@@ -4,8 +4,8 @@ module.exports = {
 	entry: "./src/componentes/index.jsx",
 	output: {
 		path: path.resolve('dist'),
-		publicPath: '/dist',
-		filename: "bundle.js"
+		filename: "bundle.js",
+		publicPath: '/dist'
 	},
 	mode: "development",
 	module: {
@@ -23,6 +23,9 @@ module.exports = {
 				loader: ['style-loader', 'css-loader']
 			}
 		]
+	},
+	devServer: {
+		historyApiFallback: true
 	},
 	resolve: {
 		extensions: ['.js','.jsx']

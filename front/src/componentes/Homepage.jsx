@@ -4,19 +4,41 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.fetchDB = this.fetchDB.bind(this);
-    this.state = {}
+    this.state = {
+      id: "",
+      nome: "",
+      usuario: "",
+      qtdJogos: ""
+    }
   }
   fetchDB(e) {
-    fetch('http://localhost/loja-de-jogos/api/usuarios', {
+    fetch('http://localhost/loja-de-jogos/api/usuarios/48', {
       method: 'GET',
     })
     .then(response => response.json())
-    .then(data => this.setState({ data }));
+    .then(response => {
+      this.setState({ [response.id] : response.value })
+    });
   }
 
   render() {
     return (
-      <button onClick={this.fetchDB}>Teste</button>
+      <div>
+        <p>
+          <label>Id: {this.state.id}</label>
+        </p>
+        <p>
+          <label>Nome: {this.state.nome}</label>
+        </p>
+        <p>
+          <label>Usuario: {this.state.usuario}</label>
+        </p>
+        <p>
+          <label>Jogos: {this.state.qtdJogos}</label>
+        </p>
+
+        <button onClick={this.fetchDB}>Carregar usuario</button>
+      </div>
     );
   }
 }

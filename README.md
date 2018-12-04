@@ -24,7 +24,7 @@ Para iniciar a aplicação usar `npm run start:server` na pasta **front**
 ##### API
 - [ ] Mover a pasta composer para o heroku conseguir montar a aplicação
 - [ ] Funções de compra de jogos (incrementar quantidade `insert ... qtdJogos = qtdJogos + 1`)
-- [ ] Autenticação (já está gerando um token sem informações do usuario)
+- [X] Autenticação
 - [ ] Tratar erros caso a query não insira, delete, etc.
 - [X] Validar consultas com resultados nulls (consultas com id sem registro no bd)
 - [ ] ~~Planejar melhor a função `atualizar` (pegar id na uri ou no form?)~~
@@ -74,7 +74,7 @@ O conceito desse trabalho será baseado de acordo com as funcionalidades realiza
 
 - [X] Realizar uma funcionalidade de negócio (ou CRUD) que manipule duas entidades simultaneamente na aplicação como um todo (utilizando Web Services de forma correta e adequada);
 
-- [ ] Utilizar autenticação aplicando técnicas de segurança adequadamente (OAuth e JWT);
+- [X] Utilizar autenticação aplicando técnicas de segurança adequadamente (OAuth e JWT);
 
 - [X] Modelagem apropriada dos Web Services (retorno dos status code correto);
 
@@ -122,7 +122,7 @@ O conceito desse trabalho será baseado de acordo com as funcionalidades realiza
 
 - [ ] CRUDs completos (pelo menos um por aluno) na aplicação com utilização de tabela e formulário, acessando os Web Services corretamente;
 
-- [ ] Navegação adequada entre as páginas;
+- [X] Navegação adequada entre as páginas;
 
 - [ ] Interface Web funcional.
 
