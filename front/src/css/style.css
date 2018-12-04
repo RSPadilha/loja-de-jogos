@@ -11,3 +11,32 @@
 .hero-body {
 	padding-top: 0;
 }
+.header{
+	position:fixed 200;
+	border: solid;
+	color: #171a21;
+	
+	max-width: 1366px;
+}
+.ph{
+	text-align: left;
+	margin-left:10px;
+}
+.senacImagem{
+	width:100%!important;
+}
+.senacImagem{
+	margin: 0 auto!important;
+	text-align: center!important;
+}
+.linha{
+	display: inline-block;
+	margin: 5px 5px 5px 0px;
+}
+.logintitulo{
+	font-weight: bold;
+
+}
+.espacamentobaixo{
+	padding-top: 10px!important;
+}

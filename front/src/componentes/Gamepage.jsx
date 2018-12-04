@@ -17,11 +17,18 @@ class Gamepage extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.fetchDB}>Buscar dados no banco</button>
+      <div className="is-full">
+        <header className="header">
+          <h2 className="ph">Ries Games</h2>
+
+          
+         </header>
+        <div>
+          <button onClick={this.fetchDB}>Buscar dados no banco</button>
+        </div>
       </div>
     );
   }
-  
+
 }
 export default Gamepage;

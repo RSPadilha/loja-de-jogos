@@ -70,12 +70,12 @@ class RegisterPage extends React.Component {
             </div> */}
 
             <div className="field is-grouped">
-              <div className="control">
-                  <input type="submit" className="button is-link" value="Cadastrar" />
+              <div className="control linha">
+                  <input type="submit" className="btn btn-primary linha" value="Cadastrar" />
               </div>
-              <div className="control">
+              <div className="control linha">
 								<Link to='/'>
-							  	<button className="button is-text">Cancelar</button>
+							  	<button className="btn btn-primary">Cancelar</button>
 								</Link>
 							</div>
             </div>

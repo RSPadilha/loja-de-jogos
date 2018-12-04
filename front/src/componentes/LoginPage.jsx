@@ -34,38 +34,34 @@ class LoginPage extends React.Component {
 		if(this.state.redirect) return <Redirect to='/homepage' />;
 		return (
 			<div className="column is-4 is-offset-4">
-				<h3 className="title has-text-grey">Login</h3>
+				<h3 className="logintitulo">Login</h3>
 				<div className="box">
 					<figure className="avatar">
-						<img src="src/imagens/senac_logo.png" />
+						<img className="senacImagem" src="src/imagens/senac_logo.png" />
 					</figure>
-					<form onSubmit={this.handleSubmit}>
-						<div className="field">
+					<form className="centralizar" onSubmit={this.handleSubmit}>
+						<div className="field espacamentobaixo">
 							<label className="label">Usuário</label>
 					  		<div className="control has-icons-left">
-					    		<input className="input" placeholder="Nome de usuário" name="usuario" required autoFocus />
-					    		<span className="icon is-small is-left">
-					      		<i className="fas fa-user"></i>
-					    		</span>
+					    		<input className="form-control" placeholder="Nome de usuário" name="usuario" required autoFocus />
+					    		
 					  		</div>
 						</div>
-						<div className="field">
+						<div className="field espacamentobaixo">
 							<label className="label">Senha</label>
 							<div className="control has-icons-left">
-						   		<input className="input" type="password" placeholder="Senha" name="senha" required />
-						   		<span className="icon is-small is-left">
-						   			<i className="fas fa-lock"></i>
-						   		</span>
+						   		<input className="form-control" type="password" placeholder="Senha" name="senha" required />
+						   		
 							</div>
 						</div>
-						<div className="field is-grouped">
-							<div className="control">
-						   		<input type="submit" className="button is-link" value="Entrar" />
+						<div className="field is-grouped espacamentobaixo">
+							<div className="control linha">
+						   		<input type="submit" className="btn btn-primary" value="Entrar" />
 							</div>
 						  	{/*Colocar fora do form*/}
-							<div className="control">
+							<div className="control linha">
 								<Link to='/register'>
-							  	<button className="button is-text">Criar conta</button>
+							  	<button className="btn btn-primary">Criar conta</button>
 								</Link>
 							</div>
 						</div>
