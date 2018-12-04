@@ -27,40 +27,32 @@ class RegisterPage extends React.Component {
             <div className="field">
               <label className="label">Nome</label>
                 <div className="control has-icons-left">
-                  <input className="input" placeholder="Nome completo" name="nome" required autoFocus />
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-user"></i>
-                  </span>
+                  <input className="form-control" placeholder="Nome completo" name="nome" required autoFocus />
+                  
                 </div>
             </div>
 
             <div className="field">
               <label className="label">Usuário</label>
                 <div className="control has-icons-left">
-                  <input className="input" placeholder="Usuário" name="usuario" required />
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-gamepad"></i>
-                  </span>
+                  <input className="form-control" placeholder="Usuário" name="usuario" required />
+                  
                 </div>
             </div>
 
             <div className="field">
               <label className="label">Senha</label>
               <div className="control has-icons-left">
-                  <input className="input" type="password" placeholder="Senha" name="senha" required />
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
+                  <input className="form-control" type="password" placeholder="Senha" name="senha" required />
+                 
               </div>
             </div>
 
             <div className="field">
               <label className="label">E-mail</label>
                 <div className="control has-icons-left">
-                  <input className="input" type="email" placeholder="E-mail" name="email" />
-                  <span className="icon is-small is-left">
-                    <i className="far fa-envelope"></i>
-                  </span>
+                  <input className="form-control" type="email" placeholder="E-mail" name="email" />
+                  
                 </div>
             </div>
 
