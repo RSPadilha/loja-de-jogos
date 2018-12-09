@@ -7,12 +7,16 @@ class Gamepage extends React.Component {
     this.fetchDB = this.fetchDB.bind(this);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescricao = this.onChangeDescricao.bind(this);
+    this.onChangePreco = this.onChangePreco.bind(this);
+    this.onChangeCapa = this.onChangeCapa.bind(this);
 
     this.insertDB = this.insertDB.bind(this);
     this.state = {
       games: [],
       nome: "",
-      descricao: ""
+      descricao: "",
+      preco: "",
+      capa: ""
     }
   }
 
@@ -83,7 +87,8 @@ class Gamepage extends React.Component {
   render() {
     const gamesList = (this.state.games || []).map(function(game, index) {
       return <li key={index} className="linhasTabela">
-        {"Nome do jogo: "+game.nome}, {"Preço R$ "+game.preco+ " Reais"}
+        {"Nome do jogo: "+game.nome}, {"Descrição: "+game.descricao}, {"Preço R$ "+game.preco+ " Reais"}
+        , {"Capa: "+game.capa}
       </li>;
     });
 
