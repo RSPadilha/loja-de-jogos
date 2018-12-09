@@ -5,6 +5,13 @@
 	height: 128px;
 	margin-bottom: 1.25rem;
 }
+.linhasTabela{
+	border:solid;
+	color: #000;
+	margin: 5px;
+
+}
+
 .hero{
  	background: #F2F6FA;
 }

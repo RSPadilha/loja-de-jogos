@@ -44,8 +44,8 @@ class Gamepage extends React.Component {
       body: JSON.stringify({
         nome: this.state.nome,
         descricao: this.state.descricao,
-        preco: 50,
-        capa: 'dqddqwdqwdqw'
+        preco: this.state.preco,
+        capa: this.state.capa
       })
     })
       .then(response => response.json())
@@ -66,14 +66,24 @@ class Gamepage extends React.Component {
   }
   onChangeDescricao(e) {
     console.log('Descricao entrou?');
-    //this.setState({[e.target.name]: e.target.value});
+    //this.setState({[e.target.descricao]: e.target.value});
     this.setState({ descricao: e.target.value });
+  }
+  onChangePreco(e) {
+    console.log('Preco entrou?');
+    //this.setState({[e.target.preco]: e.target.value});
+    this.setState({ preco: e.target.value });
+  }
+  onChangeCapa(e) {
+    console.log('Capa entrou?');
+    //this.setState({[e.target.capa]: e.target.value});
+    this.setState({ capa: e.target.value });
   }
 
   render() {
     const gamesList = (this.state.games || []).map(function(game, index) {
-      return <li key={index} className="">
-        {game.nome}
+      return <li key={index} className="linhasTabela">
+        {"Nome do jogo: "+game.nome}, {"Preço R$ "+game.preco+ " Reais"}
       </li>;
     });
 
@@ -123,14 +133,16 @@ class Gamepage extends React.Component {
         </ul>
 
         <div>
-          <button onClick={this.fetchDB}>Buscar dados no banco</button>
+          <button onClick={this.fetchDB}>Buscar jogos</button>
         </div>
 
         <div>
           <form>
-            <input type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input>
-            <input type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input>
-            <button type="button" onClick={this.insertDB}>INserir dados no banco</button>
+            <input type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Nome</span><br/>
+            <input type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input> <span>Descrição</span><br/>
+            <input type="text" name="preco" value={this.state.preco} onChange={(e) => this.onChangePreco(e)}></input> <span>Preço</span><br/>
+            <input type="text" name="capa" value={this.state.capa} onChange={(e) => this.onChangeCapa(e)}></input> <span>Capa</span><br/>
+            <button type="button" onClick={this.insertDB}>Cadastrar novo Jogo</button>
 
           </form>
         </div>
