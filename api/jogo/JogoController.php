@@ -19,7 +19,8 @@
 			$jogo = new Jogo(null, $body['nome'], $body['descricao'], $body['preco'], $body['capa']);
 			$dao = new JogoDAO;
 			$dao->inserir($jogo);
-			return $res->withStatus(201);
+			return $res->withJson($jogo)->withHeader('Content-type', 'application/json');
+			//return $res->withStatus(201);
 		}
 
 		public function atualizar($req, $res, $args) {

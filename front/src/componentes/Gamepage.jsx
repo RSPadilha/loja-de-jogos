@@ -45,6 +45,10 @@ class Gamepage extends React.Component {
     console.log("Incio fetch")
     fetch(url, {
       method: 'POST',
+       headers: {
+        'Accept': 'application/json',
+    'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         nome: this.state.nome,
         descricao: this.state.descricao,
@@ -52,11 +56,16 @@ class Gamepage extends React.Component {
         capa: this.state.capa
       })
     })
-      .then(response => response.json())
+       .then(response => {
+         console.log('ta aqui');
+         console.log(response.json())
+       })
       .then(data => {
+        console.log('ta aqui 2 ');
         console.log('data', data);
       })
       .catch(err => {
+        console.log('catch');
         // trata se alguma das promises falhar
         console.error('Falha no retorno da informação', err);
       });
@@ -143,11 +152,11 @@ class Gamepage extends React.Component {
 
         <div>
           <form>
-            <input type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Nome</span><br/>
-            <input type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input> <span>Descrição</span><br/>
-            <input type="text" name="preco" value={this.state.preco} onChange={(e) => this.onChangePreco(e)}></input> <span>Preço</span><br/>
-            <input type="text" name="capa" value={this.state.capa} onChange={(e) => this.onChangeCapa(e)}></input> <span>Capa</span><br/>
-            <button type="button" onClick={this.insertDB}>Cadastrar novo Jogo</button>
+            <input className="input1" type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Nome</span><br/>
+            <input className="input2" type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input> <span>Descrição</span><br/>
+            <input className="input3" type="text" name="preco" value={this.state.preco} onChange={(e) => this.onChangePreco(e)}></input> <span>Preço</span><br/>
+            <input className="input4" type="text" name="capa" value={this.state.capa} onChange={(e) => this.onChangeCapa(e)}></input> <span>Capa</span><br/>
+            <button className="input5" type="button" onClick={this.insertDB}>Cadastrar novo Jogo</button>
 
           </form>
         </div>
