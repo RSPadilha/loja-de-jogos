@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header.jsx';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class Homepage extends React.Component {
       infos: ""
     }
   }
+
   componentDidMount(e) {
+
     fetch('http://localhost/loja-de-jogos/api/usuarios/48', {
       method: 'GET',
     })
@@ -22,18 +25,10 @@ class Homepage extends React.Component {
     const { infos } = this.state;
     return (
       <div>
-        <p>
-          <label>Id: { infos.id }</label>
-        </p>
-        <p>
-          <label>Nome: { infos.nome }</label>
-        </p>
-        <p>
-          <label>Usuario: { infos.usuario }</label>
-        </p>
-        <p>
-          <label>Jogos: { infos.qtdJogo }</label>
-        </p>
+        <Header infos={infos}/>
+        <div className="has-text-centered">
+          <h1>Logado com sucesso... {infos.nome}</h1>
+        </div>
       </div>
     );
   }

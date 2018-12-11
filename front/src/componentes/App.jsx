@@ -18,12 +18,12 @@ class App extends React.Component {
 		return (
 			<Router>
 				<section className="hero is-fullheight">
+				{/* PrivateRoute*/}
+				<Route path="/homepage" component={Homepage} />
 					<div className="hero-body">
 						<div className="container has-text-centered">
 							<Route exact path="/" component={LoginPage} />
 							<Route path="/register" component={RegisterPage} />
-							{/* PrivateRoute*/}
-							<Route path="/homepage" component={Homepage} />
 						</div>
 					</div>
 				</section>
