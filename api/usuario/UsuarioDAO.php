@@ -38,14 +38,14 @@
 		}
 
 		public function atualizar(Usuario $usuario) {
-			$atualizar = 'UPDATE usuarios SET nome = :nome, usuario = :usuario, senha = :senha, email = :email, avatar = :avatar WHERE id = :id';
+			$atualizar = 'UPDATE usuarios SET nome = :nome, usuario = :usuario, senha = :senha, email = :email WHERE id = :id';
 			$pdo = Conexao::getConexao();
 			$comando = $pdo->prepare($atualizar);
 			$comando->bindValue('nome', $usuario->nome);
 			$comando->bindValue('usuario', $usuario->usuario);
 			$comando->bindValue('senha', hash('sha256','joguinhos' . $usuario->senha));
 			$comando->bindValue('email', $usuario->email);
-			$comando->bindValue('avatar', $usuario->avatar);
+			$comando->bindValue('id', $usuario->id);
 			$comando->execute();
 		}
 

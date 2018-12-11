@@ -26,7 +26,7 @@
 			// Pegar o objeto na requisicao?
 			// Qual a necessidade do $args se no $body tbm tem essa informacao
 			$body = $req->getParsedBody();
-			$usuario = new Usuario($args['id'], $body['nome'], $body['usuario'], $body['senha'], $body['email'], $body['avatar'], null);
+			$usuario = new Usuario($args['id'], $body['nome'], $body['usuario'], $body['senha'], $body['email'], null, null);
 			$dao = new UsuarioDAO;
 			$dao->atualizar($usuario);
 			return $res->write('Atualizado');
@@ -46,9 +46,10 @@
 
 		public function autentica($req, $res, $args) {
 			$body = $req->getParsedBody();
-			// Criar instancia de usuario com o login?
 			$dao = new UsuarioDAO;
 			$login = $dao->autentica($body['usuario'], $body['senha']);
-			return $res->write($login)->withHeader('Content-type', 'application/json');
+			if($login == 'login fail') return '{"error": "Bad Request"}';
+			echo '{"userData": "'.$login.'"}';
+			// return $res->write($login)->withHeader('Content-type', 'application/json');
 		}
 	}

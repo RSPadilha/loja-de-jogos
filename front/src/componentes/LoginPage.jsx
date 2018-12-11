@@ -10,28 +10,36 @@ class LoginPage extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		e.persist();
 		const data = new FormData(e.target);
+
 		return new Promise((resolve, reject) => {
 			fetch('http://localhost/loja-de-jogos/api/usuarios/autentica', {
 				method: 'POST',
 				body: data,
 			})
-			// .then((response) => response.json())
+			.then((response) => response.json())
 			.then((response) => {
-				// TRATAR. só redirecionar quando login ficar ok
-				this.setState({ redirect:true });
-				console.log(response);
 				resolve(response);
 			})
 			.catch((error) => {
 				reject(error);
 			});
-
+		})
+		.then((result) => {
+			let responseToken = result;
+			if(responseToken.userData) {
+				localStorage.setItem('token', JSON.stringify(responseToken.userData));
+				localStorage.setItem('idUser', JSON.stringify(responseToken.idUser));
+				this.setState({ redirect:true });
+			} else {
+				console.log("usuario errado")
+			}
 		});
 	}
 
 	render() {
-		if(this.state.redirect) return <Redirect to='/homepage' />;
+		if(this.state.redirect) return (<Redirect to='/homepage' />);
 		return (
 			<div className="column is-4 is-offset-4">
 				<h3 className="title has-text-grey">Login</h3>

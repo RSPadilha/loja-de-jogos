@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import LoginPage from './LoginPage.jsx';
 import RegisterPage from './RegisterPage.jsx';
 import Homepage from './Homepage.jsx';
+import EditInfo from './EditInfo.jsx';
 
 // function PrivateRoute({component: Component}){
 // 	return (
@@ -20,6 +21,7 @@ class App extends React.Component {
 				<section className="hero is-fullheight">
 				{/* PrivateRoute*/}
 				<Route path="/homepage" component={Homepage} />
+				<Route path="/editar" component={EditInfo} />
 					<div className="hero-body">
 						<div className="container has-text-centered">
 							<Route exact path="/" component={LoginPage} />
