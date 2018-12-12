@@ -5,6 +5,7 @@ class Gamepage extends React.Component {
   constructor(props) {
     super(props);
     this.fetchDB = this.fetchDB.bind(this);
+    this.deletaDB = this.deletaDB.bind(this);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescricao = this.onChangeDescricao.bind(this);
     this.onChangePreco = this.onChangePreco.bind(this);
@@ -18,6 +19,34 @@ class Gamepage extends React.Component {
       preco: "",
       capa: ""
     }
+  }
+
+  deletaDB(e) {
+    const url = 'http://localhost/loja-de-jogos/api/jogos';
+
+    console.log("Incio fetch")
+   fetch(url+"/10", {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      
+    })
+      .then(response => {
+        console.log('ta aqui');
+        console.log(response.json())
+      })
+      .then(data => {
+        console.log('ta aqui 2 ');
+        console.log('data', data);
+      })
+      .catch(err => {
+        console.log('catch');
+        // trata se alguma das promises falhar
+        console.error('Falha no retorno da informação', err);
+      });
+
   }
 
   fetchDB(e) {
@@ -35,19 +64,18 @@ class Gamepage extends React.Component {
       .catch(err => {
         // trata se alguma das promises falhar
         console.error('Falha no retorno da informação', err);
-      });
+      })
 
   }
-
   insertDB(e) {
     const url = 'http://localhost/loja-de-jogos/api/jogos';
 
     console.log("Incio fetch")
     fetch(url, {
       method: 'POST',
-       headers: {
+      headers: {
         'Accept': 'application/json',
-    'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         nome: this.state.nome,
@@ -56,10 +84,10 @@ class Gamepage extends React.Component {
         capa: this.state.capa
       })
     })
-       .then(response => {
-         console.log('ta aqui');
-         console.log(response.json())
-       })
+      .then(response => {
+        console.log('ta aqui');
+        console.log(response.json())
+      })
       .then(data => {
         console.log('ta aqui 2 ');
         console.log('data', data);
@@ -96,10 +124,11 @@ class Gamepage extends React.Component {
   render() {
     const gamesList = (this.state.games || []).map(function(game, index) {
       return <li key={index} className="linhasTabela">
-        {"Nome do jogo: "+game.nome}, {"Descrição: "+game.descricao}, {"Preço R$ "+game.preco+ " Reais"}
-        , {"Capa: "+game.capa}
+        {"Nome do jogo: " + game.nome}, {"Descrição: " + game.descricao}, {"Preço R$ " + game.preco + " Reais"}
+        , {"Capa: " + game.capa}
       </li>;
     });
+
 
     return (
       <div className="is-full">
@@ -111,7 +140,7 @@ class Gamepage extends React.Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
+            <ol className="navbar-nav mr-auto">
               <li className="nav-item active">
                 <a className="nav-link" href="#">Jogos <span className="sr-only">(current)</span></a>
               </li>
@@ -132,7 +161,7 @@ class Gamepage extends React.Component {
               <li className="nav-item">
                 <a className="nav-link disabled" href="#">Outros</a>
               </li>
-            </ul>
+            </ol>
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Procurar na loja" aria-label="Search"></input>
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
@@ -142,20 +171,26 @@ class Gamepage extends React.Component {
         </nav>
 
         <p id="paragrafo"></p>
-        <ul id="lista">
+        <ol id="lista">
           {gamesList}
-        </ul>
+        </ol>
 
         <div>
           <button onClick={this.fetchDB}>Buscar jogos</button>
         </div>
+        <div>
+         <form>
+            <input className="input1" type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Digite o elemento para deletar</span><br />
+          <button type="button" onClick={this.deletaDB}>Deleta jogos</button>
+          </form>
+        </div>
 
         <div>
           <form>
-            <input className="input1" type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Nome</span><br/>
-            <input className="input2" type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input> <span>Descrição</span><br/>
-            <input className="input3" type="text" name="preco" value={this.state.preco} onChange={(e) => this.onChangePreco(e)}></input> <span>Preço</span><br/>
-            <input className="input4" type="text" name="capa" value={this.state.capa} onChange={(e) => this.onChangeCapa(e)}></input> <span>Capa</span><br/>
+            <input className="input1" type="text" name="nome" value={this.state.nome} onChange={(e) => this.onChangeName(e)}></input> <span>Nome</span><br />
+            <input className="input2" type="text" name="descricao" value={this.state.descricao} onChange={(e) => this.onChangeDescricao(e)}></input> <span>Descrição</span><br />
+            <input className="input3" type="text" name="preco" value={this.state.preco} onChange={(e) => this.onChangePreco(e)}></input> <span>Preço</span><br />
+            <input className="input4" type="text" name="capa" value={this.state.capa} onChange={(e) => this.onChangeCapa(e)}></input> <span>Capa</span><br />
             <button className="input5" type="button" onClick={this.insertDB}>Cadastrar novo Jogo</button>
 
           </form>
