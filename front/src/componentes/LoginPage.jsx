@@ -10,6 +10,7 @@ class LoginPage extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		// Used for ... ?
 		e.persist();
 		const data = new FormData(e.target);
 
@@ -42,7 +43,7 @@ class LoginPage extends React.Component {
 		if(this.state.redirect) return (<Redirect to='/homepage' />);
 		return (
 			<div className="column is-4 is-offset-4">
-				<h3 className="title has-text-grey">Login</h3>
+				{/* <h3 className="title has-text-grey">Login</h3> */}
 				<div className="box">
 					<figure className="avatar">
 						<img src="src/imagens/senac_logo.png" />
@@ -65,6 +66,9 @@ class LoginPage extends React.Component {
 						   			<i className="fas fa-lock"></i>
 						   		</span>
 							</div>
+						</div>
+						<div className="field" id="passwordError" hidden>
+							<div className="has-text-danger">Usuário ou senha estão incorretos</div>
 						</div>
 						<div className="field is-grouped">
 							<div className="control">

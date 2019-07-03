@@ -6,9 +6,6 @@ export default class Header extends React.Component {
     super(props);
     this.logout = this.logout.bind(this);
     this.deletarAcc = this.deletarAcc.bind(this);
-    this.state = {
-      infos: ""
-    }
   }
 
   logout() {
@@ -23,14 +20,13 @@ export default class Header extends React.Component {
   }
 
 render () {
-  const { infos } = this.state;
   return (
     <div>
       <nav className="navbar">
         <div className="navbar-menu">
           <div className="navbar-start">
             <label className="navbar-item">
-              Seja bem-vindo: {infos.nome}
+              Seja bem-vindo {this.props.nome}
             </label>
 
             <a className="navbar-item">

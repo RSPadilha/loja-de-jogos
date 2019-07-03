@@ -29,12 +29,12 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if(localStorage.getItem('token') ==false){ return <Redirect to="/" />}
+    if(localStorage.getItem('token') == false){ return <Redirect to="/" />}
     const { infos } = this.state;
     const { jogos } = this.state;
     return (
       <div>
-        <Header infos={infos}/>
+        <Header nome={infos.nome}/>
         <div className="has-text-centered">
           <h1>Logado com sucesso...</h1>
           <div>

@@ -36,7 +36,7 @@ export default class EditInfo extends React.Component {
     const { infos } = this.state;
     return (
       <div>
-        <Header infos={infos}/>
+        <Header nome={infos.nome}/>
         <div className="has-text-centered">
           <form onSubmit={this.alterarDados}>
 
